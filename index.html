@@ -6,6 +6,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>KENAAL (beta-trash)</title>
     <link rel="stylesheet" href="style.css">
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=50">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png?v=50">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png?v=50">
+    <link rel="manifest" href="/site.webmanifest?v=50">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg?v=50" color="#5bbad5">
+    <link rel="shortcut icon" href="/favicon.ico?v=50">
+    <meta name="apple-mobile-web-app-title" content="kenaal">
+    <meta name="application-name" content="kenaal">
+    <meta name="msapplication-TileColor" content="#2b5797">
+    <meta name="theme-color" content="#ffffff">
 </head>
 <body>
 
@@ -71,5 +82,13 @@
     <script src="./crud/realtime.js"></script>
 
     <script src="./app.js"></script>
+
+    <script>
+        if('serviceWorker' in navigator){
+            navigator.serviceWorker.register('/sw.js')
+                .then(reg => console.log('⚙ Service worker: REGISTERED'))
+                .catch(err => console.log('⚙ Service worker: FAILED TO REGISTER', err));
+        };
+    </script>
 </body>
 </html>

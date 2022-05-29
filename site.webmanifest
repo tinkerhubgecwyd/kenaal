@@ -1,0 +1,21 @@
+{
+    "name": "kenaal",
+    "short_name": "kenaal",
+    "icons": [
+        {
+            "src": "/android-chrome-192x192.png?v=50",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "/512.svg",
+            "sizes": "512x512",
+            "type": "image/png",
+            "purpose": "maskable"
+        }
+    ],
+    "theme_color": "#ffffff",
+    "background_color": "#ffffff",
+    "start_url": "https://kenaal.onrender.com/",
+    "display": "standalone"
+}
