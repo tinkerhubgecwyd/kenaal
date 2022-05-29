@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KENAAL (beta-trash)</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+
+    <div id="bg_wrap"></div>
+
+    <div id="toast_block"></div>
+
+    <button id="fab_trigger" onclick="toggleFab()">+</button>
+    <div id="fab_buttons">
+        <button onclick="changeName()">change name</button>
+    </div>
+
+
+    <form id="welcome">
+        <div id="heading">
+            <p>you're on your way to</p>
+            <h1>kenaal</h1>
+            <p>an anon text channel</p>
+        </div>
+        <input type="text" name="name" id="name"
+            placeholder="choose a nice name" autocomplete="off" required>
+        <button>enter</button>
+    </form>
+
+
+    <div id="messenger">
+        <ul id="message_list">
+            <!-- <li class="load_message">
+                <button onclick="read()">load messages</button>
+            </li>
+            <li class="message_block" id="demo">
+                <p class="auther">auther</p>
+                <p class="content">Message content.</p>
+                <p class="created_at">created at</p>
+                <div class="panal">
+                    <button></button>
+                </div>
+            </li>
+            <li class="error">Error display</li> -->
+            
+        </ul>
+        <form id="send_message">
+            <textarea name="message" autocomplete="off" id="message" 
+            cols="30" rows="10" placeholder="hello..." required></textarea>
+            <button>send</button>
+        </form>
+    </div>
+
+
+    <script src="./parse.js"></script>
+    <script src="./initparse.js"></script>
+
+    <script src="./toast.js"></script>
+
+    <script src="./constants.js"></script>
+
+    <script src="./crud/sort.js"></script>
+
+    <script src="./crud/handledata.js"></script>
+    <script src="./crud/read.js"></script>
+    <script src="./crud/create.js"></script>
+    <script src="./crud/realtime.js"></script>
+
+    <script src="./app.js"></script>
+</body>
+</html>

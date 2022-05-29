@@ -1,0 +1,323 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    user-select: none;
+}
+body{
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    background-color: #000000;
+    border: 2px solid #fff;
+}
+
+
+
+
+/* welcome */
+#welcome{
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 150;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    background: #d3d3d3;
+    color: rgb(0, 0, 0);
+    filter: blur(50%);
+}
+#welcome input,
+#welcome button{
+    width: 70%;
+    padding: 10px;
+    margin: 10px 0;
+    font-family: 'Courier New', Courier, monospace;
+    text-align: center;
+}#welcome button{ text-transform: uppercase;}
+    #heading{
+        width: 70%;
+        margin-bottom: 80px;
+        --display-color-1: #696969;
+        --display-color-2: #dddddd;
+        font-weight: 900;
+        box-shadow: 0 0 700px #383838;
+        padding: 5px;
+        background: var(--display-color-2);
+    }
+    #heading h1{
+        text-align: center;
+        font-size: 50px;
+        text-transform: uppercase;
+        color: var(--display-color-1);
+    }
+    #heading p{
+        padding: 5px 10px;
+        background: var(--display-color-1);
+        color: var(--display-color-2);
+    }
+    #heading p:last-child{
+        text-align: right;
+    }
+    
+
+
+
+
+/* chat */
+#messenger{
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 50;
+
+    --chat-box-height: 80px;
+}
+#message_list{
+    width: clamp(240px, 100%, 720px);
+    margin: 0 auto;
+    height: calc(100vh - var(--chat-box-height));
+    overflow-y: scroll;
+    padding: 100px 20px;
+}
+#send_message{
+    height: var(--chat-box-height);
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #000042d5;
+    border: 2px solid #fff;
+}
+    #send_message textarea{
+        flex-grow: 8;
+        min-width: 80%;
+        max-width: 80%;
+        min-height: var(--chat-box-height);
+        max-height: var(--chat-box-height);
+        padding: 10px;
+        font-size: 22px;
+        background: #1f1f1ff5;
+        color: aliceblue;
+    }#send_message button{
+        flex-grow: 2;
+        width: 20%;
+        height: var(--chat-box-height);
+        text-transform: uppercase;
+        font-weight: 900;
+        background: #333333f3;
+        color: aliceblue;
+    }
+
+
+
+
+
+
+/* message block */
+.message_block{
+    position: relative;
+    animation: appear 100ms ease forwards;
+
+    list-style: none;
+    background: #cabfbf98;
+
+    border-radius: 0 10px 10px 10px;
+    overflow: hidden;
+
+    display: block;
+    width: 90%;
+    padding: 0 10px;
+    margin-top: 20px;
+}
+@keyframes appear {
+    from{
+        top: 500px;
+        left: 500px;
+        transform: scale(0);
+    }
+    to{
+        top: 0;
+        left: 0;
+        transform: scale(1);
+    }
+}
+    .auther,
+    .created_at{
+        font-family: monospace;
+        font-size: 12px;
+        padding: 5px;
+    }
+    .created_at{
+        text-align: right;
+        font-size: 10px;
+    }
+    .content{
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        padding: 10px;
+        background: #b1b1b1dc;
+        border-radius: 5px;
+    }
+.error{
+    display: block;
+    width: 100%;
+    list-style: none;
+    font-family: monospace;
+    font-size: 12px;
+    margin: 20px 0;
+    padding: 10px;
+    background: #d13434d7;
+    color: #dddddd;
+    font-weight: 700;
+}
+.load_message button{
+    padding: 10px;
+    margin: 20px 0;
+    display: block;
+    width: 100%;
+    list-style: none;
+    font-family: monospace;
+}
+
+
+
+
+
+/* bg */
+#bg_wrap{
+    z-index: -1000;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    min-height: 100vh;
+    background: url("./tinkerhub.png");
+    background-repeat: repeat;
+    background-size: 100px;
+    animation: bg_move 30s infinite linear;
+}
+@keyframes bg_move{
+    0%{
+        background-position: 0 100%;
+    } 
+    100%{
+        background-position: 100% 0;
+    }
+}
+#bg_wrap::after{
+    background-color: #000000e0;
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+}
+
+
+
+/* toasting fn */
+#toast_block{
+    position: fixed;
+    top: 0;
+    width: 100vw;
+    text-align: center;
+    z-index: 100;
+    overflow-y: scroll;
+}
+    #toast_block p{
+        position: relative;
+        padding: 10px;
+        width: clamp(240px, 96%, 720px);
+        margin: 0 auto;
+        margin-top: 10px;
+        font-size: 15px;
+        background: #525050;
+        color: #fff;
+        font-family: 'Courier New', Courier, monospace;
+        animation: toast 100ms forwards ease;
+        overflow: hidden;
+    }
+    @keyframes toast {
+        from{
+            transform: scale(0);
+            top: -10vh;
+        }
+        to{
+            transform: scale(1);
+            top: 0;
+        }
+    }
+    #toast_block p span{
+        position: absolute;
+        top: 25%;
+        right: 20px;
+        padding: 5px 10px;
+        background: #333030d3;
+    }
+
+
+
+
+#fab_trigger{
+    position: fixed;
+    top: 30px;
+    right: 30px;
+    z-index: 80;
+    width: 50px;
+    height: 50px;
+    padding: 0px;
+    font-size: 40px;
+    overflow: hidden;
+    font-weight: 900;
+    background: #303030;
+    color: rgb(197, 197, 197);
+    border-radius: 50%;
+    border: 2px solid rgb(199, 199, 199);
+}
+    #fab_buttons{
+        position: fixed;
+        top: 30px;
+        right: 80px;
+        z-index: 80;
+        width: 50%;
+        padding: 10px;
+        display: none;
+        text-align: center;
+        align-items: flex-end;
+        justify-content: center;
+        flex-direction: column;
+    }
+    #fab_buttons button{
+        position: relative;
+        padding: 5px 10px;
+        background: #c2c2c2;
+        flex-grow: 1;
+        flex-shrink: 0;
+        border-radius: 5px;
+        font-family: 'Courier New', Courier, monospace;
+        font-size: 18px;
+        font-weight: 900;
+        animation: slidetoleft 100ms ease forwards;
+    }
+    @keyframes slidetoleft {
+        from{
+            left: 100px;
+        }to{
+            left: 0;
+        }
+    }
